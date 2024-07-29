@@ -11,6 +11,18 @@
       "name": "User2",
       "email": "User2@email.com",
       "password": "User2pass"
+    },
+    {
+      "id": "1cc9",
+      "name": "user nam",
+      "password": "pass",
+      "email": "email"
+    },
+    {
+      "id": "4737",
+      "name": "user2",
+      "password": "pass2",
+      "email": "email2"
     }
   ]
 }
