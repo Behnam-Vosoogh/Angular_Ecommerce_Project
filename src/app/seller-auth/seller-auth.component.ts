@@ -12,14 +12,12 @@ import { Router } from '@angular/router';
   styleUrl: './seller-auth.component.css',
 })
 export class SellerAuthComponent {
-  constructor(private seller: SellService, private router: Router) {}
+  ngOnInit() {
+    this.seller.reloadSeller();
+  }
+  constructor(private seller: SellService) {}
   signUp(data: signUp): void {
     console.warn('Form Data:', data);
-    this.seller.userSignUp(data).subscribe((result) => {
-      console.warn(result);
-      if (result) {
-        this.router.navigate(['seller-home']);
-      }
-    });
+    this.seller.userSignUp(data);
   }
 }
