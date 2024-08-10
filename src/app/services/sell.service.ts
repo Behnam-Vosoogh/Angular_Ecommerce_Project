@@ -23,7 +23,11 @@ export class SellService {
       });
   }
   reloadSeller() {
-    if (localStorage.getItem('sellerToken')) {
+    if (
+      typeof localStorage !== 'undefined' &&
+      localStorage.getItem('sellerToken')
+    ) {
+      console.warn(localStorage.getItem('sellerToken'));
       this.isSellerLoggedIN.next(true);
       this.router.navigate(['/seller-home']);
     }
