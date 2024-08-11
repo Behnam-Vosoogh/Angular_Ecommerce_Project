@@ -15,7 +15,6 @@ export class SellService {
     return this.http
       .post('http://localhost:3000/seller', data, { observe: 'response' })
       .subscribe((result) => {
-        console.warn('Result:', result);
         if (result) {
           localStorage.setItem('sellerToken', JSON.stringify(result.body));
           this.router.navigate(['/seller-home']);
