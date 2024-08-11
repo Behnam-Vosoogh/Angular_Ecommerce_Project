@@ -27,10 +27,14 @@
         name="email"
         ngModel
       />
-      <button class="form-button">Sign Up</button>
-      <a class="auth-toggle-link" (click)="openLogin()" href=""
-        >Already have account? click for Log In</a
+      <button class="form-button" type="submit">Sign Up</button>
+      <a
+        class="auth-toggle-link"
+        (click)="openLogin()"
+        href="javascript:void(0)"
       >
+        Already have an account? Click for Log In
+      </a>
     </form>
   </div>
   <div *ngIf="showLogin" class="login">
@@ -54,11 +58,14 @@
         name="password"
         ngModel
       />
-
-      <button class="form-button">Login</button>
-      <a class="auth-toggle-link" (click)="openLogin()" href=""
-        >Don't have account? click for sign up</a
+      <button class="form-button" type="submit">Login</button>
+      <a
+        class="auth-toggle-link"
+        (click)="openLogin()"
+        href="javascript:void(0)"
       >
+        Don't have an account? Click for Sign Up
+      </a>
     </form>
   </div>
 </div>
