@@ -39,9 +39,10 @@
   </div>
   <div *ngIf="showLogin" class="login">
     <h1>Seller Login</h1>
+    <p class="error-p">{{ authError }}</p>
     <form
       #sellerLogIN="ngForm"
-      (ngSubmit)="sellerLogin(sellerLogIN.value)"
+      (ngSubmit)="login(sellerLogIN.value)"
       class="common-form"
     >
       <input

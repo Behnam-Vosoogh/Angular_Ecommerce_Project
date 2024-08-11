@@ -3,3 +3,7 @@ export interface signUp {
   email: string;
   passWord: string;
 }
+export interface login {
+  email: string;
+  passWord: string;
+}

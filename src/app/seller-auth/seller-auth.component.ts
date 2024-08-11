@@ -14,12 +14,19 @@ import { Router } from '@angular/router';
 })
 export class SellerAuthComponent {
   showLogin = false;
+  authError: string = '';
   constructor(private seller: SellService) {}
   ngOnInit() {
     this.seller.reloadSeller();
   }
-  sellerLogin(data: signUp): void {
-    console.warn('Form Data:', data);
+  login(data: signUp): void {
+    this.seller.userLogin(data);
+    this.seller.isLoginError.subscribe((error) => {
+      if (error) {
+        this.authError = 'User not found';
+        // alert(error);
+      }
+    });
   }
   signUp(data: signUp): void {
     console.warn('Form Data:', data);
