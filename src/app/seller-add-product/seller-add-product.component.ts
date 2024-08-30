@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from '../services/product.service';
+import { product } from '../data.type';
 
 @Component({
   selector: 'app-seller-add-product',
@@ -9,10 +11,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './seller-add-product.component.css',
 })
 export class SellerAddProductComponent implements OnInit {
-  constructor() {}
+  addProductMassages: string | undefined;
+  constructor(private product: ProductService) {}
 
   ngOnInit(): void {}
-  submit(data: object) {
+  submit(data: product) {
     console.warn(data);
+    this.product.addProduct(data).subscribe((data) => {
+      console.warn(data);
+      if (data) {
+        this.addProductMassages = 'Product added successfull';
+      }
+    });
+    setTimeout(() => {
+      this.addProductMassages = undefined;
+    }, 3000);
   }
 }
