@@ -11,6 +11,7 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   menuType: string = 'default';
+  sellerName: string = '';
   constructor(private router: Router) {}
   ngOnInit(): void {
     this.router.events.subscribe((event: any) => {
@@ -20,14 +21,19 @@ export class HeaderComponent implements OnInit {
           localStorage.getItem('sellerToken') &&
           event.url.includes('/seller')
         ) {
+          let sellerStore = localStorage.getItem('sellerToken');
+          let sellerData = sellerStore && JSON.parse(sellerStore)[0];
+          this.sellerName = sellerData.name;
           this.menuType = 'seller';
           // this.router.navigate(['/seller']);
-          console.warn('this is seller');
         } else {
           this.menuType = 'default';
-          console.warn('outside to seller area');
         }
       }
     });
+  }
+  logout() {
+    localStorage.removeItem('sellerToken');
+    this.router.navigate(['/']);
   }
 }
