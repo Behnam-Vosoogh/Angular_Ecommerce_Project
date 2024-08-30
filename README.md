@@ -21,6 +21,7 @@ This project is an e-commerce platform built with Angular. It allows sellers to 
 - Add, update, and delete products
 - Responsive design
 - User-friendly interface
+- Dummy API for testing using JSON Server
 
 ## Installation
 
@@ -39,13 +40,33 @@ To run this project locally, follow these steps:
    npm install
    ```
 
-3. **Run the development server:**
+3. **Install JSON Server:**
+
+   ```bash
+   npm install -g json-server
+   ```
+
+4. **Create a `db.json` file with initial data:**
+
+   ```json
+   {
+     "products": []
+   }
+   ```
+
+5. **Run JSON Server:**
+
+   ```bash
+   json-server --watch db.json
+   ```
+
+6. **Run the development server:**
 
    ```bash
    ng serve
    ```
 
-4. **Open your browser and navigate to:**
+7. **Open your browser and navigate to:**
    ```
    http://localhost:4200
    ```
