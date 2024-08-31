@@ -4,6 +4,7 @@ import { SellerAuthComponent } from './seller-auth/seller-auth.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SellerHomeComponent } from './seller-home/seller-home.component';
 import { SellerAddProductComponent } from './seller-add-product/seller-add-product.component';
+import { SellerUpdateProductComponent } from './seller-update-product/seller-update-product.component';
 import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
@@ -18,6 +19,11 @@ export const routes: Routes = [
   {
     path: 'seller-add-product',
     component: SellerAddProductComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'seller-update-product/:id',
+    component: SellerUpdateProductComponent,
     canActivate: [authGuard],
   },
   { path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page

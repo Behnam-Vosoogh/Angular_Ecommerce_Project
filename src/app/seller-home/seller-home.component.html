@@ -24,15 +24,13 @@
         <td>
           <fa-icon (click)="deleteProduct(item.id)" [icon]="icon"></fa-icon>
 
-          <!-- <button (click)="deleteProduct(item.id)">Delete</button> -->
-          <!-- <fa-icon (click)="deleteProduct(item.id)" [icon]="icon"></fa-icon>
           <a
             class="adjust-update-link"
             routerLink="/seller-update-product/{{ item.id }}"
+            routerLinkActive="active"
           >
             <fa-icon [icon]="iconEdit"></fa-icon
           ></a>
-        </td> -->
         </td>
       </tr>
     </tbody>

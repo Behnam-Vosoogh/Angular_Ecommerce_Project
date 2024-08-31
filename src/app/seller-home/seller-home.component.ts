@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { product } from '../data.type';
 import { ProductService } from '../services/product.service';
 import { CommonModule } from '@angular/common';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, RouterModule],
   standalone: true,
   selector: 'app-seller-home',
   templateUrl: './seller-home.component.html',
@@ -16,6 +17,8 @@ export class SellerHomeComponent implements OnInit {
   productsList: undefined | product[];
   productMessage: undefined | string;
   icon = faTrash;
+  iconEdit = faEdit;
+
   // faCoffee = faCoffee;
 
   constructor(private products: ProductService) {}
