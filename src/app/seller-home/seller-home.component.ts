@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { product } from '../data.type';
 import { ProductService } from '../services/product.service';
 import { CommonModule } from '@angular/common';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   standalone: true,
   selector: 'app-seller-home',
   templateUrl: './seller-home.component.html',
@@ -13,6 +15,8 @@ import { CommonModule } from '@angular/common';
 export class SellerHomeComponent implements OnInit {
   productsList: undefined | product[];
   productMessage: undefined | string;
+  icon = faTrash;
+  // faCoffee = faCoffee;
 
   constructor(private products: ProductService) {}
 
