@@ -12,14 +12,31 @@ import { CommonModule } from '@angular/common';
 })
 export class SellerHomeComponent implements OnInit {
   productsList: undefined | product[];
+  productMessage: undefined | string;
+
   constructor(private products: ProductService) {}
 
   ngOnInit(): void {
-    this.products.productList().subscribe((data) => {
-      console.warn(data);
-      if (data) {
-        console.warn(data);
-        this.productsList = data;
+    this.list();
+  }
+  deleteProduct(id: number) {
+    console.warn('0', id);
+    this.products.deleteProduct(id).subscribe((result) => {
+      console.warn('1', id);
+      if (result) {
+        console.warn(id);
+        this.productMessage = 'Product is deleted';
+        this.list();
+      }
+    });
+    setTimeout(() => {
+      this.productMessage = undefined;
+    }, 3000);
+  }
+  list() {
+    this.products.productList().subscribe((result) => {
+      if (result) {
+        this.productsList = result;
       }
     });
   }
