@@ -11,4 +11,7 @@ export class ProductService {
     return this.http.post('http://localhost:3000/products', data);
     // console.warn('Service called');
   }
+  productList() {
+    return this.http.get<product[]>('http://localhost:3000/products');
+  }
 }
