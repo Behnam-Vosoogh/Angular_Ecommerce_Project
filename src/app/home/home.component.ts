@@ -14,11 +14,15 @@ import { RouterModule } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   popularProducts: undefined | product[];
+  trendyProducts: undefined | product[];
 
   constructor(private products: ProductService) {}
   ngOnInit(): void {
     this.products.popularProducts().subscribe((data) => {
       this.popularProducts = data;
+    });
+    this.products.trendyProducts().subscribe((data) => {
+      this.trendyProducts = data;
     });
   }
 }
