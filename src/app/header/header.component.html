@@ -8,7 +8,7 @@
       (blur)="hideSearch()"
       placeholder="Search Products"
     />
-    <button>Search</button>
+    <button (click)="submitSearch(searchInput.value)">Search</button>
     <ul class="suggested-search" *ngIf="searchResult">
       <li *ngFor="let item of searchResult">
         <a>{{ item.name }}</a>

@@ -55,4 +55,11 @@ export class HeaderComponent implements OnInit {
   hideSearch() {
     this.searchResult = undefined;
   }
+  redirectToDetails(id: number) {
+    this.router.navigate(['/details/' + id]);
+  }
+  submitSearch(val: string) {
+    console.warn(val);
+    this.router.navigate([`search/${val}`]);
+  }
 }
