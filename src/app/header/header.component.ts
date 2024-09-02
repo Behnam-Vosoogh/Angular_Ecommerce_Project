@@ -46,8 +46,10 @@ export class HeaderComponent implements OnInit {
       this.products.searchProduct(element.value).subscribe((result) => {
         console.warn(result);
         if (result.length > 5) {
-          result.length = length;
+          console.warn('more');
+          result.length = 5;
         }
+        console.warn(result.length);
         this.searchResult = result;
       });
     }
