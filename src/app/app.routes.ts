@@ -7,6 +7,7 @@ import { SellerAddProductComponent } from './seller-add-product/seller-add-produ
 import { SellerUpdateProductComponent } from './seller-update-product/seller-update-product.component';
 import { authGuard } from './auth.guard';
 import { SearchComponent } from './search/search.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,6 +31,10 @@ export const routes: Routes = [
   {
     path: 'search/:query',
     component: SearchComponent,
+  },
+  {
+    component: ProductDetailsComponent,
+    path: 'details/:productId',
   },
   { path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
 ];
