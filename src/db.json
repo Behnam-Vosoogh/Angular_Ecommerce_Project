@@ -80,5 +80,31 @@
       "image": "https://www.reliancedigital.in/medias/Noise-Colorfit-Pro-2-Smart-Watch-491900986-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w1MDc0NXxpbWFnZS9qcGVnfGltYWdlcy9oYzkvaDdjLzk1OTE4MjA3NDY3ODIuanBnfDA3MjZlMzkzOTExYzMyNzk5Y2YzOTk0MWFkMjc5YjE5OTlkMDE4NzYzYTg1YzQ2YmNjZjMxYzc5ZDJiYjBlNDg",
       "id": "7"
     }
+  ],
+  "users": [
+    {
+      "name": "Behnam",
+      "email": "behnam@email.com",
+      "password": "abc123",
+      "id": "1"
+    },
+    {
+      "name": "customer1",
+      "email": "customer1@email.com",
+      "password": "abc123",
+      "id": "2"
+    },
+    {
+      "name": "customer2",
+      "email": "customer2@email.com",
+      "password": "abc123",
+      "id": "3"
+    },
+    {
+      "name": "customer3",
+      "email": "customer3@email.com",
+      "password": "abc123",
+      "id": "4"
+    }
   ]
 }
