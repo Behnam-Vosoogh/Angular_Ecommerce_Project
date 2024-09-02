@@ -13,6 +13,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductDetailsComponent implements OnInit {
   productData: undefined | product;
+  productQuantity: number = 1;
+  removeCart = false;
+  cartData: product | undefined;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -30,12 +33,19 @@ export class ProductDetailsComponent implements OnInit {
           items = items.filter(
             (item: product) => productId === item.id.toString()
           );
-          // if(items.length){
-          //   this.removeCart=true
-          // }else{
-          //   this.removeCart=false
-          // }
+          if (items.length) {
+            this.removeCart = true;
+          } else {
+            this.removeCart = false;
+          }
         }
       });
+  }
+  handleQuantity(val: string) {
+    if (this.productQuantity < 20 && val === 'plus') {
+      this.productQuantity += 1;
+    } else if (this.productQuantity > 1 && val === 'min') {
+      this.productQuantity -= 1;
+    }
   }
 }
