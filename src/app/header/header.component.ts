@@ -18,24 +18,21 @@ export class HeaderComponent implements OnInit {
   cartItems = 0;
   searchResult: undefined | product[];
   constructor(private router: Router, private products: ProductService) {}
+
   ngOnInit(): void {
-    this.router.events.subscribe((event: any) => {
-      if (event.url) {
-        console.log(event.url);
-        if (
-          localStorage.getItem('sellerToken') &&
-          event.url.includes('/seller')
-        ) {
-          let sellerStore = localStorage.getItem('sellerToken');
+    this.router.events.subscribe((val: any) => {
+      if (val.url) {
+        if (localStorage.getItem('seller') && val.url.includes('seller')) {
+          let sellerStore = localStorage.getItem('seller');
           let sellerData = sellerStore && JSON.parse(sellerStore)[0];
           this.sellerName = sellerData.name;
           this.menuType = 'seller';
-          // this.router.navigate(['/seller']);
         } else if (localStorage.getItem('user')) {
           let userStore = localStorage.getItem('user');
           let userData = userStore && JSON.parse(userStore);
           this.userName = userData.name;
           this.menuType = 'user';
+          this.products.getCartList(userData.id);
         } else {
           this.menuType = 'default';
         }
@@ -50,21 +47,23 @@ export class HeaderComponent implements OnInit {
     });
   }
   logout() {
-    localStorage.removeItem('sellerToken');
+    localStorage.removeItem('seller');
     this.router.navigate(['/']);
   }
 
+  userLogout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/user-auth']);
+    this.products.cartData.emit([]);
+  }
+
   searchProduct(query: KeyboardEvent) {
-    console.warn(query);
     if (query) {
       const element = query.target as HTMLInputElement;
       this.products.searchProduct(element.value).subscribe((result) => {
-        console.warn(result);
         if (result.length > 5) {
-          console.warn('more');
-          result.length = 5;
+          result.length = length;
         }
-        console.warn(result.length);
         this.searchResult = result;
       });
     }
@@ -78,10 +77,5 @@ export class HeaderComponent implements OnInit {
   submitSearch(val: string) {
     console.warn(val);
     this.router.navigate([`search/${val}`]);
-  }
-  userLogout() {
-    localStorage.removeItem('user');
-    this.router.navigate(['/user-auth']);
-    this.products.cartData.emit([]);
   }
 }
