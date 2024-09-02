@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   menuType: string = 'default';
   sellerName: string = '';
   userName: string = '';
-
+  cartItems = 0;
   searchResult: undefined | product[];
   constructor(private router: Router, private products: ProductService) {}
   ngOnInit(): void {
@@ -40,6 +40,13 @@ export class HeaderComponent implements OnInit {
           this.menuType = 'default';
         }
       }
+    });
+    let cartData = localStorage.getItem('localCart');
+    if (cartData) {
+      this.cartItems = JSON.parse(cartData).length;
+    }
+    this.products.cartData.subscribe((items) => {
+      this.cartItems = items.length;
     });
   }
   logout() {
