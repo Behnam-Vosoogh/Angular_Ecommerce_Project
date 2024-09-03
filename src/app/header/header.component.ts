@@ -15,12 +15,12 @@ export class HeaderComponent implements OnInit {
   menuType: string = 'default';
   sellerName: string = '';
   userName: string = '';
-  cartItems = 0;
   searchResult: undefined | product[];
-  constructor(private router: Router, private products: ProductService) {}
+  cartItems = 0;
+  constructor(private route: Router, private product: ProductService) {}
 
   ngOnInit(): void {
-    this.router.events.subscribe((val: any) => {
+    this.route.events.subscribe((val: any) => {
       if (val.url) {
         if (localStorage.getItem('seller') && val.url.includes('seller')) {
           let sellerStore = localStorage.getItem('seller');
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
           let userData = userStore && JSON.parse(userStore);
           this.userName = userData.name;
           this.menuType = 'user';
-          this.products.getCartList(userData.id);
+          this.product.getCartList(userData.id);
         } else {
           this.menuType = 'default';
         }
@@ -42,25 +42,25 @@ export class HeaderComponent implements OnInit {
     if (cartData) {
       this.cartItems = JSON.parse(cartData).length;
     }
-    this.products.cartData.subscribe((items) => {
+    this.product.cartData.subscribe((items) => {
       this.cartItems = items.length;
     });
   }
   logout() {
     localStorage.removeItem('seller');
-    this.router.navigate(['/']);
+    this.route.navigate(['/']);
   }
 
   userLogout() {
     localStorage.removeItem('user');
-    this.router.navigate(['/user-auth']);
-    this.products.cartData.emit([]);
+    this.route.navigate(['/user-auth']);
+    this.product.cartData.emit([]);
   }
 
   searchProduct(query: KeyboardEvent) {
     if (query) {
       const element = query.target as HTMLInputElement;
-      this.products.searchProduct(element.value).subscribe((result) => {
+      this.product.searchProduct(element.value).subscribe((result) => {
         if (result.length > 5) {
           result.length = length;
         }
@@ -72,10 +72,10 @@ export class HeaderComponent implements OnInit {
     this.searchResult = undefined;
   }
   redirectToDetails(id: number) {
-    this.router.navigate(['/details/' + id]);
+    this.route.navigate(['/details/' + id]);
   }
   submitSearch(val: string) {
     console.warn(val);
-    this.router.navigate([`search/${val}`]);
+    this.route.navigate([`search/${val}`]);
   }
 }

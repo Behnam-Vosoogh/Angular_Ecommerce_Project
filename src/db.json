@@ -118,7 +118,7 @@
       "quantity": 1,
       "productId": 1,
       "userId": 3,
-      "id": 7
+      "id": "7"
     },
     {
       "name": "Levies Jeans",
@@ -130,7 +130,7 @@
       "quantity": 1,
       "productId": 5,
       "userId": 3,
-      "id": 8
+      "id": "8"
     },
     {
       "id": "e0e2",
@@ -301,22 +301,5 @@
       "userId": "2"
     }
   ],
-  "orders": [
-    {
-      "email": "anil@user.com",
-      "address": "noida sector x",
-      "contact": "9999",
-      "totalPrice": 104750,
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "email": "anil@test.com",
-      "address": "noida sector x",
-      "contact": "8877",
-      "totalPrice": 6100,
-      "userId": 1,
-      "id": 3
-    }
-  ]
+  "orders": []
 }
