@@ -1,27 +1,35 @@
 # Angular E-commerce Project
 
-This is an Angular-based e-commerce project that allows sellers to add products and manage their inventory. The project includes authentication for sellers and a user-friendly interface for managing products.
+Welcome to the Angular E-commerce Project! This project is a fully functional e-commerce web application built using Angular. It showcases a variety of features including product listing, search functionality, user authentication, and a shopping cart system.
 
 ## Table of Contents
 
-- [Project Description](#project-description)
 - [Features](#features)
+- [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Project Description
-
-This project is an e-commerce platform built with Angular. It allows sellers to sign up, log in, and manage their products. Sellers can add new products, update existing ones, and delete products from their inventory.
-
 ## Features
 
-- Seller authentication (sign up and log in)
-- Add, update, and delete products
-- Responsive design
-- User-friendly interface
-- Dummy API for testing using JSON Server
+- **Product Listing**: Browse a list of products with details such as name, price, color, category, and description.
+- **Search Functionality**: Search for products using keywords.
+- **User Authentication**: Separate login for users and sellers.
+- **Shopping Cart**: Add products to the cart and view the cart contents.
+- **Seller Dashboard**: Sellers can add new products, view their product list, and manage their inventory.
+- **Responsive Design**: The application is designed to be responsive and works well on both desktop and mobile devices.
+
+## Technologies Used
+
+- **Angular**: Frontend framework for building dynamic web applications.
+- **TypeScript**: Superset of JavaScript that adds static typing.
+- **RxJS**: Library for reactive programming using observables.
+- **Angular Router**: For navigation and routing.
+- **FontAwesome**: For icons and visual enhancements.
+- **Bootstrap**: For responsive design and styling.
+- **LocalStorage**: For storing cart data and user sessions.
 
 ## Installation
 
