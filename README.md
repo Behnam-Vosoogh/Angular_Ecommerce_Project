@@ -1,6 +1,7 @@
 # Angular E-commerce Project
 
 Welcome to the Angular E-commerce Project! This project is a fully functional e-commerce web application built using Angular. It showcases a variety of features including product listing, search functionality, user authentication, and a shopping cart system.
+![Angular E-commerce Project](https://github.com/Behnam-Vosoogh/Weather_App/blob/main/images/ScreenShot.png)
 
 ## Table of Contents
 
